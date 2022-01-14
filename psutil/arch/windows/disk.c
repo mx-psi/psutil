@@ -102,7 +102,7 @@ psutil_disk_io_counters(PyObject *self, PyObject *args) {
     for (devNum = 0; devNum <= 32; ++devNum) {
         py_tuple = NULL;
         sprintf_s(szDevice, MAX_PATH, "\\\\.\\PhysicalDrive%d", devNum);
-        hDevice = CreateFile(szDevice, 0, FILE_SHARE_READ | FILE_SHARE_WRITE,
+        hDevice = CreateFile(szDevice, 0, FILE_SHARE_READ,
                              NULL, OPEN_EXISTING, 0, NULL);
         if (hDevice == INVALID_HANDLE_VALUE)
             continue;
